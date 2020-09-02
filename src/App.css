@@ -1,38 +1,476 @@
-.App {
-  text-align: center;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+body{
+  font-family: 'Nunito Sans', sans-serif;
+  font-size : 16px;
+  background: hsl(0, 0%, 98%);
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+  font-size : 1.6em;
+  font-weight: bold
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: hsl(0, 0%, 100%);
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.navbar{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+.filters{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height : 180px;
+}
+.search-group{
+  width: 450px;
+  height : 40px;
+  line-height: 40px;
+  padding : 10px 30px 10px 30px;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+  border-radius : 5px;
+}
+input[type="search"]{
+  border : none;
+  outline : none;
+  margin-left : 10px;
+  width: 90%;
+}
+.fa-search {
+  color : rgb(176, 176, 176);
+  cursor: pointer;
+}
+select{
+  border : none;
+}
+.dropdown{
+  width: 150px;
+  height : 40px;
+  line-height: 40px;
+  padding : 10px 30px 10px 30px;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+  border-radius : 5px; 
+}
+.countries {
+  width: 100%;
+}
+.country{
+  width : 21%;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+  margin-bottom : 60px;
+  float: left;
+  margin-right: 75px;
+}
+.country:nth-child(4n){
+  margin-right : 0
+}
+.country img{
+  width: 100%;
+  height: 180px;
+}
+.details{
+  padding : 50px
+}
+.country h3{
+  font-size : 1.1em;
+  padding : 0px 0 12px 0;
+  font-weight: bold;
+}
+.country p{
+  padding : 5px 0;
+  font-size: .9em;
+}
+span{
+  color : rgb(142, 142, 142)
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  width: 150px;
+  height : 50px;
+  line-height: 50px;
+  font-size : 1.1em;
+  cursor: pointer;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+  border-radius : 5px;
+  border : none
+}
+.fa-long-arrow-left {
+  color : rgb(176, 176, 176);
+  cursor: pointer;
+  margin-right: 5px;
+}
+.content  {
+  display: flex;
+  justify-content: left;
+  width: 100%
+}
+.flag {
+  width : 45%;
+  overflow: hidden;
+  padding : 0 4% 0 0;
+}
+.flag img {
+  width: 100%;
+}
+.desc {
+  width: 45%;
+  padding : 0 0 0 4%;
+}
+.sub-desc {
+  display : flex;
+  justify-content: space-between;
+  width : 100%;
+}
+.desc h3{
+  font-weight: bold;
+  font-size : 1.8em;
+  padding : 30px 0
+}
+.desc p{
+  padding : 10px
+}
+.bottom-nav {
+  width : 100%;
+  display: flex;
+  justify-content: left;
+  margin-top : 50px
+}
+.bottom-nav h4 {
+  width : 200px;
+  font-weight: bold;
+}
+.bottom-nav ul {
+  display : flex;
+  flex-wrap: wrap;
+}
+.bottom-nav ul li {
+  padding : 7px 30px;
+  box-shadow: 0 0 5px 1px rgb(230, 230, 230);
+  margin : 10px;
+  margin-top : 0
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  nav{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: hsl(0, 0%, 100%);
   }
-  to {
-    transform: rotate(360deg);
+  h1{
+    font-size : 1.4em;
+    font-weight: bold
+  }
+  .filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height : 180px;
+    margin-bottom : 40px
+  }
+  .search-group{
+    width: 340px;
+    height : 40px;
+    line-height: 40px;
+    padding : 10px 30px 10px 30px;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    border-radius : 5px;
+  }
+  input[type="search"]{
+    border : none;
+    outline : none;
+    margin-left : 10px;
+    width: 90%;
+  }
+  .fa-search {
+    color : rgb(176, 176, 176);
+    cursor: pointer;
+  }
+  .country{
+    width : 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    margin-bottom : 60px;
+  }
+  .country img{
+    width: 100%;
+    height: auto;
+  }
+  .details{
+    padding : 50px
+  }
+  .country h3{
+    font-size : 1.4em;
+    padding : 0px 0 12px 0;
+    font-weight: bold;
+  }
+  .country p{
+    padding : 5px 0;
+    font-size: .9em;
+  }
+  span{
+    color : rgb(142, 142, 142)
+  }
+  button{
+    width: 150px;
+    height : 50px;
+    line-height: 50px;
+    font-size : 1.1em;
+    cursor: pointer;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    border-radius : 5px;
+    border : none
+  }
+  .fa-long-arrow-left {
+    color : rgb(176, 176, 176);
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .desc {
+    width : 100%;
+  }
+  .content  {
+    display: block;
+    width: 100%
+  }
+  .flag {
+    width : 100%;
+    overflow: hidden;
+    padding : 0 4% 0 0;
+  }
+  .desc p{
+    padding : 10px 0 10px 0;
+    width : 100%;
+    display: block;
+  }
+  .sub-desc {
+    display : block;
+    width : 100%;
+  }
+  .bottom-nav {
+    width : 100%;
+    display: block;
+    margin : 30px 0;
+  }
+  .bottom-nav h4 {
+    width : 200px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  nav{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: hsl(0, 0%, 100%);
+  }
+  h1{
+    font-size : 1.4em;
+    font-weight: bold
+  }
+  .filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height : 180px;
+    margin-bottom : 40px
+  }
+  .search-group{
+    width: 320px;
+    height : 40px;
+    line-height: 40px;
+    padding : 10px 30px 10px 30px;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    border-radius : 5px;
+  }
+  input[type="search"]{
+    border : none;
+    outline : none;
+    margin-left : 10px;
+    width: 90%;
+  }
+  .fa-search {
+    color : rgb(176, 176, 176);
+    cursor: pointer;
+  }
+  .countries {
+    width : 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .country{
+    width : 48%;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    margin-bottom : 60px;
+    margin-right : 18px;
+  }
+  .country:nth-child(2n){
+    margin-right : 0
+  }
+  .country img{
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nav{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: hsl(0, 0%, 100%);
+  }
+  h1{
+    font-size : 1.4em;
+    font-weight: bold
+  }
+  .filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height : 180px;
+    margin-bottom : 40px
+  }
+  .search-group{
+    width: 320px;
+    height : 40px;
+    line-height: 40px;
+    padding : 10px 30px 10px 30px;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    border-radius : 5px;
+  }
+  input[type="search"]{
+    border : none;
+    outline : none;
+    margin-left : 10px;
+    width: 90%;
+  }
+  .fa-search {
+    color : rgb(176, 176, 176);
+    cursor: pointer;
+  }
+  .countries {
+    width : 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .country{
+    width : 31%;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    margin-bottom : 60px;
+    margin-right : 18px !important;
+  }
+  .country:nth-child(3n){
+    margin-right : 0
+  }
+  .country img{
+    width: 100%;
+    height: 200px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1400px) {
+  .country{
+    width : 23%;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px rgb(230, 230, 230);
+    margin-bottom : 60px;
+    margin-right : 18px !important;
+  }
+  .country:nth-child(4n){
+    margin-right : 0
+  }
+  .country img{
+    width: 100%;
+    height: 200px;
   }
 }
